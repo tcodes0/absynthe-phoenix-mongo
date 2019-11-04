@@ -5,7 +5,7 @@ defmodule Community.Mixfile do
     [
       app: :community,
       version: "0.0.1",
-      elixir: "~> 1.4",
+      elixir: "~> 1.9.2",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
@@ -33,14 +33,17 @@ defmodule Community.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3.4"},
+      {:phoenix, "~> 1.4.10"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
-      {:absinthe_ecto, "~> 0.1.0"},
-      {:absinthe_plug, "~> 1.3.0"},
-      {:cowboy, "~> 1.0"}
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:absinthe, "~> 1.4.16"},
+      {:absinthe_plug, "~> 1.4.7"},
+      {:poison, "~> 3.0"},
+      {:jason, "~> 1.1.2"},
+      {:plug_cowboy, "~> 2.1.0"},
     ]
   end
 
