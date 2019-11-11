@@ -6,9 +6,9 @@ defmodule Community.Mixfile do
       app: :community,
       version: "0.0.1",
       elixir: "~> 1.9.2",
-      elixirc_paths: elixirc_paths(Mix.env),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers,
-      start_permanent: Mix.env == :prod,
+      elixirc_paths: elixirc_paths(Mix.env()),
+      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      start_permanent: Mix.env() == :prod,
       aliases: scripts(),
       deps: deps()
     ]
@@ -26,7 +26,7 @@ defmodule Community.Mixfile do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_),     do: ["lib"]
+  defp elixirc_paths(_), do: ["lib"]
 
   # Specifies your project dependencies.
   #
@@ -43,7 +43,7 @@ defmodule Community.Mixfile do
       {:absinthe_plug, "~> 1.4.7"},
       {:poison, "~> 3.0"},
       {:jason, "~> 1.1.2"},
-      {:plug_cowboy, "~> 2.1.0"},
+      {:plug_cowboy, "~> 2.1.0"}
     ]
   end
 
