@@ -35,14 +35,15 @@ defmodule Community.Mixfile do
     [
       {:phoenix, "~> 1.4.10"},
       {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
+      {:ecto_sql, "~> 3.2.2"},
       {:gettext, "~> 0.11"},
       {:absinthe_ecto, "~> 0.1.3"},
       {:absinthe, "~> 1.4.16"},
       {:absinthe_plug, "~> 1.4.7"},
       {:poison, "~> 3.0"},
       {:jason, "~> 1.1.2"},
+      {:mongodb, "~> 0.5.1"},
       {:plug_cowboy, "~> 2.1.0"}
     ]
   end

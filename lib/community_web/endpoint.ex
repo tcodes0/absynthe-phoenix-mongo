@@ -20,7 +20,7 @@ defmodule CommunityWeb.Endpoint do
     plug(Phoenix.CodeReloader)
   end
 
-  plug(Plug.Logger)
+  plug(Plug.Logger, log: :info)
 
   plug(Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
