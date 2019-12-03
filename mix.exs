@@ -20,7 +20,7 @@ defmodule Community.Mixfile do
   def application do
     [
       mod: {Community.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :mongodb, :poolboy],
     ]
   end
 
@@ -36,6 +36,7 @@ defmodule Community.Mixfile do
       {:phoenix, "~> 1.4.10"},
       {:phoenix_pubsub, "~> 1.0"},
       {:postgrex, ">= 0.0.0"},
+      {:poolboy, "~> 1.5.2"},
       {:ecto_sql, "~> 3.2.2"},
       {:gettext, "~> 0.11"},
       {:absinthe_ecto, "~> 0.1.3"},

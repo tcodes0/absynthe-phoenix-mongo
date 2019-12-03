@@ -14,7 +14,23 @@ defmodule CommunityWeb.Schema do
     end
 
     field :hello, :string do
-      resolve(fn _, _ -> {:ok, "world!"} end)
+      resolve(fn _, _ ->
+        conn = case Mongo.start_link(name: :mongo) do
+          {:ok, conn} ->
+            IO.puts ":ok"
+            conn
+            {:error, {:already_started, conn}} ->
+              IO.puts ":already"
+              conn
+          {:error, error} -> raise error
+        end
+        # IEx.inspect(conn) |> IO.puts
+        Mongo.find(conn, "user", %{})
+        |> Enum.to_list()
+        |> IO.inspect()
+
+        {:ok, "world!"}
+      end)
     end
   end
 

@@ -14,6 +14,16 @@ defmodule Community.Application do
       supervisor(CommunityWeb.Endpoint, []),
       # Start your own worker by calling: Community.Worker.start_link(arg1, arg2, arg3)
       # worker(Community.Worker, [arg1, arg2, arg3]),
+      # mongodb+srv://admin:admin@cluster0-kjmc5.mongodb.net/test?retryWrites=true&w=majority
+      worker(Mongo, [
+        [
+          name: :mongo,
+          url:
+            "mongodb+srv://admin:admin@cluster0-kjmc5.mongodb.net/test?retryWrites=true&w=majority",
+          database: "test",
+          pool_size: 2
+        ]
+      ])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
