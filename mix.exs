@@ -55,10 +55,12 @@ defmodule Community.Mixfile do
   # See the documentation for `Mix` for more info on aliases.
   defp scripts do
     [
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      "db.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      # "db.drop": ["ecto.drop", "db.setup"],
       test: ["ecto.create --quiet", "ecto.migrate", "test"],
-      start: ["phx.server"]
+      start: ["phx.server"],
+      startup: ["install", "db.setup"],
+      install: ["deps.get"]
     ]
   end
 end
